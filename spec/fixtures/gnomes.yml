@@ -1,0 +1,17 @@
+gnome1:
+  name: Alberto
+  country: Spain
+  life_score: <%= rand(20..100) %>
+  fight_score: <%= rand(20..50) %>
+
+gnome2:
+  name: Jim
+  country: USA
+  life_score: <%= rand(20..100) %>
+  fight_score: <%= rand(20..50) %>
+
+gnome3:
+  name: Kim
+  country: Korea
+  life_score: <%= rand(20..100) %>
+  fight_score: <%= rand(20..50) %> 
