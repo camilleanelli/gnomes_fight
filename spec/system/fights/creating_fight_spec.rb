@@ -9,8 +9,8 @@ RSpec.describe "start a fight" do
 
     visit "/fights/new"
 
-    choose('fight_gnome1_' + alberto.id.to_s)
-    choose('fight_gnome2_' + kim.id.to_s)
+    choose('fight_gnome1_id_' + alberto.id.to_s)
+    choose('fight_gnome2_id_' + kim.id.to_s)
 
     click_on "Fight!"
     # expect(page).to have_content("The winner is")

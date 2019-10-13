@@ -9,7 +9,7 @@ class Fight < ApplicationRecord
     attacker, defenser = [gnome1, gnome2]
     while(check_ending(attacker, defenser).nil?) do
       defenser.life_score = defenser.life_score - compute_damage_done(attacker)
-      # TODO save rounds Round(attacker, defenser, initial_attacker_pv, initial_defenser_pv, defenser_damage_taken)
+      rounds.create(attacker: attacker, defenser: defenser, initial_attacker_pv: attacker.life_score, initial_defenser_pv: defenser.life_score, defenser_damage_taken: compute_damage_done(attacker) )
       attacker, defenser = defenser, attacker
     end
     check_ending(attacker, defenser)
