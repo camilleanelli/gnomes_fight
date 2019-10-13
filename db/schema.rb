@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_143159) do
+ActiveRecord::Schema.define(version: 2019_10_13_105050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fights", force: :cascade do |t|
+    t.bigint "gnome1_id"
+    t.bigint "gnome2_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "winner_id"
+    t.index ["gnome1_id"], name: "index_fights_on_gnome1_id"
+    t.index ["gnome2_id"], name: "index_fights_on_gnome2_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
+  end
 
   create_table "gnomes", force: :cascade do |t|
     t.integer "life_score"

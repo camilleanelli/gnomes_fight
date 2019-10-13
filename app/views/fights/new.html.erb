@@ -1,0 +1,15 @@
+<h1>Tous les combats</h1>
+<!-- on affichera un historique des combats  -->
+
+<h1>Start a new fight</h1>
+<p>Choose your gnomes</p>
+
+<%= form_for @fight do |f| %>
+  <%= f.collection_radio_buttons :gnome1_id, Gnome.all, :id, :name, prompt: true %>
+
+  <br>
+   VS
+  <%= f.collection_radio_buttons :gnome2_id, Gnome.all, :id, :name, prompt: true %>
+  <br>
+  <%= f.submit "Fight!" %>
+<% end %>
