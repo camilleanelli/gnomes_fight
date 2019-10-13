@@ -1,6 +1,6 @@
 class Gnome < ApplicationRecord
-  before_save :set_default_life_score
-  before_save :set_default_fight_score
+  before_create :set_default_life_score
+  before_create :set_default_fight_score
 
   validates_presence_of :name
 
