@@ -7,6 +7,7 @@ class FightsController < ApplicationController
   def create
     @fight = Fight.new(params_fights)
     if @fight.save
+      @fight.find_winner_gnome
       redirect_to @fight
     else
       render :new
@@ -15,6 +16,7 @@ class FightsController < ApplicationController
 
   def show
     @fight = Fight.find(params[:id])
+    @rounds = @fight.rounds
   end
 
   private

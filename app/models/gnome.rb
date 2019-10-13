@@ -13,7 +13,7 @@ class Gnome < ApplicationRecord
   private
 
   def set_default_life_score
-    self.life_score = rand(20..100)
+    self.life_score = rand(80..200)
   end
 
   def set_default_fight_score

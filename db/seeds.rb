@@ -15,3 +15,7 @@ names_country = {
 names_country.each do |name, country|
   Gnome.create(name: name, country: country)
 end
+
+#fights
+
+Fight.create(gnome1: Gnome.first, gnome2: Gnome.find(3))

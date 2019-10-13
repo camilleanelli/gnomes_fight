@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_105050) do
+ActiveRecord::Schema.define(version: 2019_10_13_184257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,4 +35,19 @@ ActiveRecord::Schema.define(version: 2019_10_13_105050) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rounds", force: :cascade do |t|
+    t.bigint "fight_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "attacker_id"
+    t.bigint "defenser_id"
+    t.integer "initial_attacker_pv"
+    t.integer "initial_defenser_pv"
+    t.integer "defenser_damage_taken"
+    t.index ["attacker_id"], name: "index_rounds_on_attacker_id"
+    t.index ["defenser_id"], name: "index_rounds_on_defenser_id"
+    t.index ["fight_id"], name: "index_rounds_on_fight_id"
+  end
+
+  add_foreign_key "rounds", "fights"
 end

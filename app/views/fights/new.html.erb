@@ -1,15 +1,50 @@
-<h1>Tous les combats</h1>
-<!-- on affichera un historique des combats  -->
+<%= render "layouts/menu" %>
+<section class="page-section" id="services">
+  <div class="container">
+    <h1 class="text-center mt-0 font-weight-bold">START A NEW FIGHT</h1>
+    <hr class="divider my-4">
+    <%= form_for @fight do |f| %>
+      <% if @fight.errors.any? %>
+        <div id="error_explanation">
+          <p><%= pluralize(@fight.errors.count, "error") %> prohibited this fight from starting !</p>
+          <ul>
+            <% @fight.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<h1>Start a new fight</h1>
-<p>Choose your gnomes</p>
+      <div class="row">
+        <div class=" col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Pick the first Gnome</h3>
+            <p class="text-muted mb-0"></p>
+            <div class="gnomes-list">
+              <%= f.collection_radio_buttons(:gnome1_id, Gnome.all, :id, :name) do |b|
+                b.label(:"data-value" => b.value) { b.radio_button + b.text }
+              end %>
+            </div>
+          </div>
+        </div>
+        <div class=" col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Pick the second Gnome</h3>
+            <p class="text-muted mb-0"></p>
+            <div class="gnomes-list">
+              <%= f.collection_radio_buttons(:gnome2_id, Gnome.all, :id, :name) do |b|
+                b.label(:"data-value" => b.value) { b.radio_button + b.text }
+              end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<%= form_for @fight do |f| %>
-  <%= f.collection_radio_buttons :gnome1_id, Gnome.all, :id, :name, prompt: true %>
-
-  <br>
-   VS
-  <%= f.collection_radio_buttons :gnome2_id, Gnome.all, :id, :name, prompt: true %>
-  <br>
-  <%= f.submit "Fight!" %>
-<% end %>
+      <div class=" text-center">
+        <%= f.submit "FIGHT !", class: "btn btn-primary btn-xl js-scroll-trigger" %>
+      </div>
+    <% end %>
+  </div>
+</section>
