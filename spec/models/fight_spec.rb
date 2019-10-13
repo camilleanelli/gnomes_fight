@@ -14,4 +14,56 @@ RSpec.describe Fight, type: :model do
 
     expect(fight.winner).to eql(fight.gnome2)
   end
+
+  describe "call" do
+
+    it "trigger the fight", focus: true do
+     gnome1 = Gnome.create(name: "alberto")
+     gnome1.life_score = 50
+     gnome1.fight_score = 50
+     gnome1.save
+
+     gnome2 = Gnome.create(name: "xavier")
+     gnome2.life_score = 50
+     gnome2.fight_score = 10
+     gnome2.save
+
+     fight = Fight.create(gnome1: gnome1, gnome2: gnome2)
+
+     expect(fight.find_winner_gnome).to eql(gnome1)
+   end
+
+    it "trigger the fight with more rounds", focus: true do
+      gnome1 = Gnome.create(name: "alberto")
+      gnome1.life_score = 10
+      gnome1.fight_score = 10
+      gnome1.save
+
+      gnome2 = Gnome.create(name: "xavier")
+      gnome2.life_score = 20
+      gnome2.fight_score = 1
+      gnome2.save
+
+     fight = Fight.create(gnome1: gnome1, gnome2: gnome2)
+
+      expect(fight.find_winner_gnome).to eql(gnome1)
+    end
+
+    it "trigger the fight with more rounds", focus: true do
+      gnome1 = Gnome.create(name: "alberto")
+      gnome1.life_score = 100
+      gnome1.fight_score = 20
+      gnome1.save
+
+      gnome2 = Gnome.create(name: "xavier")
+      gnome2.life_score = 70
+      gnome2.fight_score = 10
+      gnome2.save
+
+      fight = Fight.create(gnome1: gnome1, gnome2: gnome2)
+
+      expect(fight.find_winner_gnome).to eql(gnome1)
+      expect(fight.rounds.count).to eql(4)
+    end
+  end
 end
