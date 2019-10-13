@@ -1,0 +1,6 @@
+<li>
+
+  Name: <%= link_to gnome.name, gnome %> |
+  Lifes: <%= gnome.life_score %> | Fights: <%= gnome.fight_score %>
+  <%= link_to 'Edit', edit_gnome_path(gnome), id: "edit_#{gnome.id}" %>
+</li>
