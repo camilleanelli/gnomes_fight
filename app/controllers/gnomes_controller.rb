@@ -21,12 +21,25 @@ class GnomesController < ApplicationController
   end
 
   def new
+    @gnome = Gnome.new
   end
 
   def create
+    @gnome = Gnome.new(gnomes_params)
+    if @gnome.save
+      redirect_to gnomes_path
+    else
+      render "new"
+    end
   end
 
   def destroy
+    @gnome = Gnome.find(params[:id])
+    if @gnome.destroy
+      redirect_to gnomes_path
+    else
+      render :show
+    end
   end
 
   private
