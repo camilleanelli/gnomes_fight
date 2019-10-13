@@ -4,12 +4,13 @@ RSpec.describe "editing gnomes", type: :system do
   fixtures :all
 
   it "can edit gnomes" do
+    player = gnomes(:gnome1)
     visit "/gnomes"
 
-    find(:css, '#edit_'+ Gnome.first.id.to_s).click
+    find(:css, '#edit_'+ player.id.to_s).click
     fill_in "Country", with: "Reunion"
-    click_button "Confirm update"
-    click_link "#{Gnome.first.name}"
+    click_button "Validate"
+    click_link "#{player.name}"
 
     expect(page).to have_content("Country: Reunion")
   end
