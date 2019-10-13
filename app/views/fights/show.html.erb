@@ -1,1 +1,7 @@
-<%# afficher les round  %>
+The winner is <%= @fight.winner.name %> !
+
+<% @rounds.each do |r| %>
+  attacker : <%= r.attacker.name %> | initial life points : <%= r.initial_attacker_pv %>
+  defenser : <%= r.defenser.name %> | initial life points : <%= r.initial_defenser_pv %>
+  damages for defenser : <%= r.defenser_damage_taken %>
+<% end %>
