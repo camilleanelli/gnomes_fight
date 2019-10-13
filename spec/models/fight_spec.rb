@@ -64,6 +64,7 @@ RSpec.describe Fight, type: :model do
 
       expect(fight.find_winner_gnome).to eql(gnome1)
       expect(fight.rounds.count).to eql(7)
+      expect(fight.reload.winner).to eq(gnome1)
     end
   end
 end
