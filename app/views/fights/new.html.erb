@@ -26,6 +26,10 @@
                 b.label(:"data-value" => b.value) { b.radio_button + b.text }
               end %>
             </div>
+            <div class="weapons_choice">
+              <h4 class="h4 mb-2">Choose a weapon !</h4>
+              <%= f.select :weapon_one_id, Weapon.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+            </div>
           </div>
         </div>
         <div class=" col-md-6 text-center">
@@ -37,6 +41,10 @@
               <%= f.collection_radio_buttons(:gnome2_id, Gnome.all, :id, :name) do |b|
                 b.label(:"data-value" => b.value) { b.radio_button + b.text }
               end %>
+            </div>
+            <div class="weapons_choice">
+              <h4 class="h4 mb-2">Choose a weapon !</h4>
+              <%= f.select :weapon_two_id, Weapon.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
             </div>
           </div>
         </div>

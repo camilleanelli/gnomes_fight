@@ -1,0 +1,7 @@
+hammer:
+  name: "Hammer"
+  power: 10
+
+bucket:
+  name: "Bucket"
+  power: 9

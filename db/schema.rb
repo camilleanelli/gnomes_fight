@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_184257) do
+ActiveRecord::Schema.define(version: 2019_10_14_101011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,12 @@ ActiveRecord::Schema.define(version: 2019_10_13_184257) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "winner_id"
+    t.bigint "weapon_one_id"
+    t.bigint "weapon_two_id"
     t.index ["gnome1_id"], name: "index_fights_on_gnome1_id"
     t.index ["gnome2_id"], name: "index_fights_on_gnome2_id"
+    t.index ["weapon_one_id"], name: "index_fights_on_weapon_one_id"
+    t.index ["weapon_two_id"], name: "index_fights_on_weapon_two_id"
     t.index ["winner_id"], name: "index_fights_on_winner_id"
   end
 
@@ -47,6 +51,13 @@ ActiveRecord::Schema.define(version: 2019_10_13_184257) do
     t.index ["attacker_id"], name: "index_rounds_on_attacker_id"
     t.index ["defenser_id"], name: "index_rounds_on_defenser_id"
     t.index ["fight_id"], name: "index_rounds_on_fight_id"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "power"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "rounds", "fights"
