@@ -32,6 +32,7 @@
                </label>
              <% end %>
             </div>
+            <br>
             <div class="weapons_choice">
               <h4 class="h4 mb-2">Choose a weapon !</h4>
               <%= f.select :weapon_one_id, Weapon.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
@@ -54,6 +55,7 @@
                 </label>
               <% end %>
             </div>
+            <br>
             <div class="weapons_choice">
               <h4 class="h4 mb-2">Choose a weapon !</h4>
               <%= f.select :weapon_two_id, Weapon.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>

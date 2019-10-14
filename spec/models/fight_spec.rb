@@ -12,12 +12,14 @@ RSpec.describe Fight, type: :model do
 
 
   describe "validations" do
+
     it '#gnomes_must_be_different' do
      gnome1 = Gnome.create(name: "alberto")
      fight = Fight.create(gnome1: gnome1, gnome2: gnome1)
      expect(fight).not_to be_persisted
      expect(fight).not_to be_valid
     end
+
     it "has validation of presence on foreign_keys" do
      fight = Fight.create(gnome1: nil, gnome2: nil)
      expect(fight).not_to be_persisted
@@ -32,16 +34,22 @@ RSpec.describe Fight, type: :model do
     xavier = Gnome.create(name: "xavier")
     xavier.update(life_score: 20, fight_score: 60)
 
-    it 'calculates the fight score of the attacker' do
+    it 'calculates the damage made by attacker' do
       fight = Fight.create(gnome1: alberto, gnome2: xavier)
 
-      expect(fight.send(:compute_damage_done, alberto)).to eql(50)
+      #beetween 60% and 100% of the fight_score
+      expect(fight.send(:compute_damage_done, alberto)).to be >= 30
+      expect(fight.send(:compute_damage_done, alberto)).to be <= 50
+
     end
 
     it 'adds power to fight score when weapon is present' do
       fight = Fight.create(gnome1: alberto, gnome2: xavier, weapon_one: weapons(:bucket))
 
-      expect(fight.send(:compute_damage_done, alberto)).to eql(59)
+      #on 9 points de forces sont ajoutes sur alberto
+      expect(fight.send(:compute_damage_done, alberto)).to be >= 35
+      expect(fight.send(:compute_damage_done, alberto)).to be <= 59
+
     end
   end
 

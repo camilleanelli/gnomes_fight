@@ -31,12 +31,13 @@ class Fight < ApplicationRecord
   private
 
   def compute_damage_done(attacker)
+    attacker_fight_score = (attacker.fight_score*rand(0.6..1)).floor
     if attacker == gnome1 && weapon_one_id
-      result = attacker.fight_score + weapon_one.power
+      result = attacker_fight_score + weapon_one.power
     elsif attacker == gnome2 && weapon_two_id
-      result = attacker.fight_score + weapon_two.power
+      result = attacker_fight_score + weapon_two.power
     else
-      result = attacker.fight_score
+      result = attacker_fight_score
     end
     result
   end
