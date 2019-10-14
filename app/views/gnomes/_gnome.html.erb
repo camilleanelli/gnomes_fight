@@ -1,6 +1,22 @@
-<li>
-  Name: <%= link_to gnome.name, gnome %> |
-  Country: <%= gnome.country %> |
-  Lifes: <%= gnome.life_score %> | Fights: <%= gnome.fight_score %>
-  <%= link_to 'Edit', edit_gnome_path(gnome), id: "edit_#{gnome.id}" %>
-</li>
+<tr>
+  <td>
+    <%= link_to gnome.name, gnome %>
+  </td>
+  <td>
+    <% unless gnome.picture.blank?  %>
+      <%= image_tag gnome.picture, width: "80" %>
+    <% end %>
+  </td>
+  <td>
+    <%= gnome.country %>
+  </td>
+  <td>
+    <%= gnome.life_score %>
+  </td>
+  <td>
+    <%= gnome.fight_score %>
+  </td>
+  <td>
+    <%= link_to 'Edit', edit_gnome_path(gnome), id: "edit_#{gnome.id}" %>
+  </td>
+</tr>
