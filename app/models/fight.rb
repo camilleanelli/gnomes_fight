@@ -8,6 +8,8 @@ class Fight < ApplicationRecord
 
   belongs_to :winner, class_name: "Gnome", foreign_key: "winner_id", optional: true
 
+  validate :gnomes_must_be_different
+
   def find_winner_gnome
     attacker, defenser = [gnome1, gnome2]
     while(check_ending(attacker, defenser).nil?) do
@@ -42,5 +44,12 @@ class Fight < ApplicationRecord
   def check_ending(attacker, defenser)
     return attacker if defenser.life_score <= 0
     return defenser if attacker.life_score <= 0
+  end
+
+  def gnomes_must_be_different
+    if self.gnome1_id == self.gnome2_id
+      self.errors.add(:gnome2_id, "The gnomes must be different")
+      return false
+    end
   end
 end
