@@ -20,8 +20,8 @@ names_country.each do |name, country|
 end
 
 #fights
-Fight.create(gnome1: Gnome.first, gnome2: Gnome.find(3))
-
+fight = Fight.create(gnome1: Gnome.first, gnome2: Gnome.find(3))
+fight.find_winner_gnome
 #weapons
 weapons = {"hammer" => 20, "shovel" => 21, "bucket" => 19, "chisel" => 20, "stone" => 23, "axe" => 22, "watering can" => 18}
 

@@ -60,4 +60,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.filestack_rails.api_key = 'AMlga67k6TdOjTGRKcO4wz'
+  config.filestack_rails.client_name = 'filestack_client'
 end
