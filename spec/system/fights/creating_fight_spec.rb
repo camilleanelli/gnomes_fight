@@ -19,6 +19,10 @@ RSpec.describe "start a fight" do
     choose('fight_gnome1_id_' + alberto.id.to_s)
     choose('fight_gnome2_id_' + kim.id.to_s)
 
+
+    select "Hammer", from: "fight_weapon_one_id"
+    select "Bucket", from: "fight_weapon_two_id"
+
     click_on "FIGHT !"
 
     expect(page).to have_content("The winner is ")
