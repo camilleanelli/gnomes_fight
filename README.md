@@ -1,6 +1,21 @@
-Ce repo contient le squelette d'une application à compléter dans le cadre du processus de recrutement des développeurs.
+# UTILISATION EN LOCALE
 
-Plus d'infos à propos du poste de développeur chez Captain Contrat sur [notre page jobs](https://jobs.captaincontrat.com/)
+- lancer bundle
+- `bin/setup` pour peupler la base de données (les personnages et les armes)
+- `bundle exec rspec` pour lancer les tests.
+
+# AMÉLIORATIONS FUTURES
+
+- "refactoring" des tests (certaines pages trop surchargées)
+- voir si FactoryBot serait plus efficace
+- extraire la logique de combat du modèle Fight
+- mettre cette logique dans un job si elle devenait trop lente
+
+# NOTES
+
+Thème utilisé : https://startbootstrap.com/previews/creative/
+http://liamthinks.blogspot.com/2013/04/ikeas-new-ad-features-couple-fighting.html
+https://images.app.goo.gl/miA2VZB2fTbiswNZ6
 
 # Captain Challenge
 
