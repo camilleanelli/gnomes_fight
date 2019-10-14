@@ -4,6 +4,8 @@ RSpec.describe Fight, type: :model do
   describe 'associations' do
     it { should belong_to(:gnome1).class_name('Gnome')}
     it { should belong_to(:gnome2).class_name('Gnome')}
+    it { should belong_to(:weapon_one).class_name('Weapon').optional}
+    it { should belong_to(:weapon_two).class_name('Weapon').optional}
   end
 
   it 'can assign a gnome winner at the end of the game' do

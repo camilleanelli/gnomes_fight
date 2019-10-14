@@ -19,7 +19,7 @@ RSpec.describe "start a fight" do
     choose('fight_gnome1_id_' + alberto.id.to_s)
     choose('fight_gnome2_id_' + kim.id.to_s)
 
-    click_on "Fight!"
+    click_on "FIGHT !"
 
     expect(page).to have_content("The winner is ")
 
