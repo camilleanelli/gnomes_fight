@@ -22,6 +22,6 @@ class FightsController < ApplicationController
   private
 
   def params_fights
-    params.fetch(:fight).permit(:gnome1_id, :gnome2_id)
+    params.fetch(:fight).permit(:gnome1_id, :gnome2_id, :weapon_one_id, :weapon_two_id)
   end
 end

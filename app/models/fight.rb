@@ -5,7 +5,7 @@ class Fight < ApplicationRecord
 
   belongs_to :weapon_one, class_name: "Weapon", foreign_key: "weapon_one_id", optional: true
   belongs_to :weapon_two, class_name: "Weapon", foreign_key: "weapon_two_id", optional: true
-  
+
   belongs_to :winner, class_name: "Gnome", foreign_key: "winner_id", optional: true
 
   def find_winner_gnome
@@ -28,10 +28,15 @@ class Fight < ApplicationRecord
 
   private
 
-
   def compute_damage_done(attacker)
-    # TODO add weapon attack score
-    attacker.fight_score
+    if attacker == gnome1 && weapon_one_id
+      result = attacker.fight_score + weapon_one.power
+    elsif attacker == gnome2 && weapon_two_id
+      result = attacker.fight_score + weapon_two.power
+    else
+      result = attacker.fight_score
+    end
+    result
   end
 
   def check_ending(attacker, defenser)
