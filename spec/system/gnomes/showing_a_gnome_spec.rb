@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "Gnomes", type: :system do
+RSpec.describe "displaying a gnome", type: :system do
   fixtures :all
 
   it "can shows a gnome" do

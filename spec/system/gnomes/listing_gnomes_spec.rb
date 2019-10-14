@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe "Gnomes", type: :system do
+RSpec.describe "listing gnomes", type: :system do
   fixtures :all
-  
+
   it "displays the gnomes" do
     visit "/gnomes"
 
