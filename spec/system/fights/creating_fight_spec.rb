@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "start a fight" do
+RSpec.describe "start a fight", type: :system do
   fixtures :all
 
   it "can start a new fight" do
