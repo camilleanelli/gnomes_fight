@@ -1,18 +1,17 @@
 class GnomesController < ApplicationController
+  before_action :find_gnome, only: [:show, :edit, :update, :destroy]
+
   def index
     @gnomes = Gnome.all.order(:name)
   end
 
   def show
-    @gnome = Gnome.find(params[:id])
   end
 
   def edit
-    @gnome = Gnome.find(params[:id])
   end
 
   def update
-    @gnome = Gnome.find(params[:id])
     if @gnome.update(gnomes_params)
       redirect_to gnomes_path
     else
@@ -34,7 +33,6 @@ class GnomesController < ApplicationController
   end
 
   def destroy
-    @gnome = Gnome.find(params[:id])
     if @gnome.destroy
       redirect_to gnomes_path
     else
@@ -43,6 +41,10 @@ class GnomesController < ApplicationController
   end
 
   private
+
+  def find_gnome
+    @gnome = Gnome.find(params[:id])
+  end
 
   def gnomes_params
     params.require(:gnome).permit(:name, :country)

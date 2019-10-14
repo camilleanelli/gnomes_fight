@@ -1,7 +1,40 @@
-The winner is <%= @fight.winner.name %> !
+<%= render "layouts/menu" %>
 
-<% @rounds.each do |r| %>
-  attacker : <%= r.attacker.name %> | initial life points : <%= r.initial_attacker_pv %>
-  defenser : <%= r.defenser.name %> | initial life points : <%= r.initial_defenser_pv %>
-  damages for defenser : <%= r.defenser_damage_taken %>
-<% end %>
+<section class="page-section" id="services">
+  <div class="container">
+    <h1 class="text-center mt-0 font-weight-bold"> FIGHT RECAP</h1>
+    <hr class="divider my-4">
+    <div class="row">
+      <div class=" col-md-6 text-center">
+        <h2><%= @gnome1.name %> (<%= @gnome1.country %>)</h2>
+        pv : <%= @gnome1.life_score %> <br />
+        pa : <%= @gnome1.fight_score %>
+      </div>
+      <div class=" col-md-6 text-center">
+        <h2><%= @gnome2.name %> (<%= @gnome2.country %>)</h2>
+        pv : <%= @gnome2.life_score %> <br />
+        pa : <%= @gnome2.fight_score %>
+      </div>
+      <div class=" col-md-12 text-center">
+        <div class="mt-5">
+          <p class="text-muted mb-0"></p>
+          <div class="">
+            <% @rounds.each do |r| %>
+              <div>
+                <hr>
+                <%= r.attacker.name %> (<%= r.initial_attacker_pv %>pv) attack <%= r.defenser.name %> (<%= r.initial_defenser_pv %>)
+                <br>
+                <%= r.defenser_damage_taken %> damage done on <%= r.defenser.name %> !
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" text-center">
+      <p class="btn btn-primary mt-5 text-uppercase">
+      <%= @fight.winner.name %> WIN !
+      </p>
+    </div>
+  </div>
+</section>

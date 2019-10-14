@@ -1,6 +1,10 @@
 class FightsController < ApplicationController
+
+  def index
+    @fights = Fight.all.includes(:rounds)
+  end
+
   def new
-    @fights = Fight.all
     @fight = Fight.new
   end
 
@@ -17,6 +21,8 @@ class FightsController < ApplicationController
   def show
     @fight = Fight.find(params[:id])
     @rounds = @fight.rounds
+    @gnome1 = @fight.gnome1
+    @gnome2 = @fight.gnome2
   end
 
   private

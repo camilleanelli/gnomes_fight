@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= fight.gnome1.name %>
+  </td>
+  <td>
+    VS
+  </td>
+  <td>
+    <%= fight.gnome2.name %>
+  </td>
+  <td><%= fight.rounds.count %></td>
+  <td>
+    <%= fight.winner.name %>
+  </td>
+  <td><%= link_to "view", fight_path(fight) %></td>
+</tr>
