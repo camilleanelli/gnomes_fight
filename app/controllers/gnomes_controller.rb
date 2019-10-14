@@ -47,7 +47,7 @@ class GnomesController < ApplicationController
   end
 
   def gnomes_params
-    params.require(:gnome).permit(:name, :country)
+    params.require(:gnome).permit(:name, :country, :picture)
   end
 
 end
