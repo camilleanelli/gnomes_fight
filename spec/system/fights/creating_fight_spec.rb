@@ -25,7 +25,7 @@ RSpec.describe "start a fight" do
 
     click_on "FIGHT !"
 
-    expect(page).to have_content("The winner is ")
+    expect(page).to have_content("WIN")
 
   end
 end
